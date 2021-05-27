@@ -7,7 +7,18 @@ const person = require("../models/person");
 
 
 //create a new person and save
+Route.post('/',async (req,res)=>{
+    
+    const person= new Person(req.body);
+    const personSaved= await person.save();
+    try{
 
+       res.status(200).json(personSaved);
+    }
+    catch{
+        res.status(400).json('failed');
+    }
+});
 
 Route.post('/many',async (req,res)=>{
     var arrayOfPeople = req.body;
