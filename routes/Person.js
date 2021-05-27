@@ -7,7 +7,7 @@ const person = require("../models/person");
 
 
 //create a new person and save
-Route.post('/',async (req,res)=>{
+router.post('/',async (req,res)=>{
     
     const person= new Person(req.body);
     const personSaved= await person.save();
